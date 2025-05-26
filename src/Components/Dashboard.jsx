@@ -13,7 +13,7 @@ const Dashboard = ({ onSubmitData }) => {
     startDate: new Date(new Date().setMonth(today.getMonth() - 1)),
   });
   const [errors, setError] = useState({});
-
+  const [loading, setLoading] = useState(false);
   const onInputChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -55,7 +55,11 @@ const Dashboard = ({ onSubmitData }) => {
   };
 
   const onSubmit = async () => {
-    if (!formValidation()) return;
+    setLoading(true);
+    if (!formValidation()) {
+      setLoading(false);
+      return;
+    }
 
     console.log("function submitted!");
     console.log("formdate:", formData);
@@ -68,6 +72,8 @@ const Dashboard = ({ onSubmitData }) => {
       onSubmitData(data.data.daily, formData);
     } catch (error) {
       console.error("Error while fetching data", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -118,8 +124,9 @@ const Dashboard = ({ onSubmitData }) => {
         />
       </div>
       <Button
-        className="bg-black text-white hover:bg-[#262628]"
-        text="Fetch Weather Data"
+        className="bg-black text-white hover:bg-[#262628] disabled:opacity-50"
+        text={loading ? "Fetching weather data..." : "Fetch Weather Data"}
+        disabled={loading}
         onClick={onSubmit}
       />
     </div>
