@@ -11,6 +11,7 @@ const DatePickerInput = ({ label, onChange, value, placeholder, isError }) => {
         className="px-4 py-2 w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-black-[#262628]"
         onChange={onChange}
         selected={value}
+        maxDate={new Date()}
         placeholderText={placeholder}
         popperPlacement="bottom-start"
         dateFormat='MMMM d, yyyy'

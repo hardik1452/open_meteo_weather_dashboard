@@ -31,18 +31,13 @@ function App() {
 
   const onFormSubmit = (weatherData, formData) => {
     if (!weatherData || !formData) {
-      console.warn("Missing weather data or form data");
       return;
     }
     const processedData = processWeatherData(weatherData);
     setweatherData(processedData);
     setParameter(formData);
-    console.log("in app", processedData, formData);
   };
 
-  useEffect(() => {
-    console.log("Updated parameter state:", parameter);
-  }, [parameter]);
 
   return (
     <>

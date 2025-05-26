@@ -61,8 +61,6 @@ const Dashboard = ({ onSubmitData }) => {
       return;
     }
 
-    console.log("function submitted!");
-    console.log("formdate:", formData);
     const { latitude, longitude, startDate, endDate } = formData;
     const newStartDate = startDate.toISOString().split("T")[0];
     const newEndDate = endDate.toISOString().split("T")[0];

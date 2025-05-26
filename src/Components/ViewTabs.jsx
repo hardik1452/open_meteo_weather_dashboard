@@ -5,18 +5,18 @@ const ViewTabs = ({ data }) => {
   const [selectedTab, setSelectedTab] = useState("chart");
   return (
     <>
-      <div className="flex flex-row mt-2 mb-1 bg-[#e8eaec] px-1 py-1 w-fit rounded-md text-gray-500 cursor-pointer">
+      <div className="flex w-full flex-wrap mt-2 mb-3 justify-center gap-2 sm:max-w-sm rounded-md bg-[#e8eaec] p-1 text-gray-500">
         <div
-          className={`px-12 py-2 ${
-            selectedTab === "chart" ? "bg-white rounded-md text-gray-900" : null
+          className={`flex-1 min-w-[100px] text-center px-4 py-2 text-sm font-semibold rounded-md transition ${
+            selectedTab === "chart" ? "bg-white rounded-md text-gray-900" : ""
           }`}
           onClick={() => setSelectedTab("chart")}
         >
           <span className="font-semibold">CHART</span>
         </div>
         <div
-          className={`px-12 py-2 ${
-            selectedTab === "table" ? "bg-white rounded-md text-gray-900" : null
+          className={`flex-1 min-w-[100px] text-center px-4 py-2 text-sm font-semibold rounded-md transition ${
+            selectedTab === "table" ? "bg-white rounded-md text-gray-900" : ""
           }`}
           onClick={() => setSelectedTab("table")}
         >
@@ -28,7 +28,7 @@ const ViewTabs = ({ data }) => {
         {selectedTab === "chart" ? (
           <WeatherChart data={data} />
         ) : (
-          <WeatherTable data={data}/>
+          <WeatherTable data={data} />
         )}
       </div>
     </>
