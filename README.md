@@ -6,6 +6,13 @@ A responsive React application to fetch and visualize historical weather data us
 
 ---
 
+---
+
+### 🚀 Live Preview
+Link: https://open-meteo-weather-dashboard.vercel.app/
+
+---
+
 ### 🚀 Features
 
 * 📍 Latitude & Longitude input with validation
